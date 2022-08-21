@@ -1,0 +1,108 @@
+{
+    "peoples": [
+        {
+            "id": 1,
+            "name": "Armando",
+            "surname": "Smith",
+            "vaccine_status": 2,
+            "vaccine_types": [
+                "Moderna",
+                "Moderna"
+            ],
+            "vaccine_dates": [
+                "9 January 2022",
+                "30 April 2022"
+            ],
+            "age": "25 years old",
+            "hometown": "51 Golden Star Dr. Huntington, NY 11743",
+            "comment": "Armando Smith is in very good health."
+        },
+        {
+            "id": 2,
+            "name": "Olivia",
+            "surname": "Williams",
+            "vaccine_status": 1,
+            "vaccine_types": [
+                "Pfizer",
+                "Pfizer"
+            ],
+            "vaccine_dates": [
+                "7 December 2021",
+                "15 March 2022"
+            ],
+            "age": "18 years old",
+            "hometown": "52 Ryan Street. Sioux City, IA 51106",
+            "comment": "Olivia Williams has very good health."
+        },
+        {
+            "id": 3,
+            "name": "Isabella",
+            "surname": "Johnson",
+            "vaccine_status": 3,
+            "vaccine_types": [
+                "Sinovac",
+                "Sinovac",
+                "AstraZeneca"
+            ],
+            "vaccine_dates": [
+                "9 December 2021",
+                "3 March 2022",
+                "11 June 2022"
+            ],
+            "age": "21 years old",
+            "hometown": "63 Grand St. Moncks Corner, SC 29461",
+            "comment": "Isabella Johnson has very bad health."
+        },
+        {
+            "id": 4,
+            "name": "Kyle",
+            "surname": "Taylor",
+            "vaccine_status": 2,
+            "vaccine_types": [
+                "Moderna",
+                "Pfizer"
+            ],
+            "vaccine_dates": [
+                "1 November 2022",
+                "21 February 2022"
+            ],
+            "age": "30 years old",
+            "hometown": "9892 Clark St. Pittsburgh, PA 15206",
+            "comment": "Kyle Taylor is in very good health."
+        },
+        {
+            "id": 5,
+            "name": "Oscar",
+            "surname": "Anderson",
+            "vaccine_status": 1,
+            "vaccine_types": [
+                "Sinovac",
+                ""
+            ],
+            "vaccine_dates": [
+                "2 January 2022",
+                ""
+            ],
+            "age": "60 years old",
+            "hometown": "564 Argyle Road. Lithonia, GA 30038",
+            "comment": "Oscar Anderson is in very bad health."
+        },
+        {
+            "id": 6,
+            "name": "David",
+            "surname": "Jones",
+            "vaccine_status": 1,
+            "vaccine_types": [
+                "Pfizer",
+                ""
+            ],
+            "vaccine_dates": [
+                "20 October 2021",
+                ""
+            ],
+            "age": "30 years old",
+            "hometown": "546 Arnold Drive. Port Washington, NY 11050",
+            "comment": "David Jones has very bad health."
+        }
+    ]
+}
