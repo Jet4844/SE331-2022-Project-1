@@ -1,7 +1,7 @@
 <template>
-  <h1>Events For Good</h1>
+  <h1>Vaccine status</h1>
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <EventCard v-for="people in peoples" :key="people.id" :people="people" />
     <div class="pagination">
       <router-link
         id="page-prev"
@@ -28,7 +28,6 @@
 // @ is an alias to /src
 import EventCard from "@/components/EventCard.vue";
 import EventService from "@/services/EventService.js";
-
 // import axios from 'axios'
 export default {
   name: "EventList",
@@ -43,18 +42,17 @@ export default {
   },
   data() {
     return {
-      events: null,
-      totalEvents: 0, // <--- Added this to store totalEvents
+      peoples: null,
+      totalPeoples: 0, // <--- Added this to store totalEvents
     };
   },
-
   // eslint-disable-next-line no-unused-vars
   beforeRouteEnter(routeTo, routeFrom, next) {
     EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
       .then((response) => {
         next((comp) => {
-          comp.events = response.data;
-          comp.totalEvents = response.headers["x-total-count"];
+          comp.peoples = response.data;
+          comp.totalPeoples = response.headers["x-total-count"];
         });
       })
       .catch(() => {
@@ -64,8 +62,8 @@ export default {
   beforeRouteUpdate(routeTo) {
     EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
       .then((response) => {
-        this.events = response.data; // <-----
-        this.totalEvents = response.headers["x-total-count"]; // <-----
+        this.peoples = response.data; // <-----
+        this.totalPeoples = response.headers["x-total-count"]; // <-----
       })
       .catch(() => {
         return { name: "NetworkError" };
@@ -74,8 +72,7 @@ export default {
   computed: {
     hasNextPage() {
       // First, calculate total pages
-      let totalPages = Math.ceil(this.totalEvents / 3); // 2 is events per page
-
+      let totalPages = Math.ceil(this.totalPeoples / 3); // 2 is events per page
       // Then check to see if the current page is less than the total pages.
       return this.page < totalPages;
     },
@@ -97,11 +94,9 @@ export default {
   text-decoration: none;
   color: #2c3e50;
 }
-
 #page-prev {
   text-align: left;
 }
-
 #page-next {
   text-align: right;
 }

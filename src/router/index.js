@@ -6,7 +6,7 @@ import EventRegister from "@/views/event/EventRegister.vue";
 import EventEdit from "@/views/event/EventEdit.vue";
 import EventLayout from "@/views/event/EventLayout.vue";
 import NotFound from "@/views/NotFound.vue";
-import NetWorkError from "@/views/NetworkError.vue";
+// import NetWorkError from "@/views/NetworkError.vue";
 import NProgress from "nprogress";
 import EventService from "@/services/EventService.js";
 import GStore from "@/store";
@@ -76,11 +76,11 @@ const routes = [
     name: "NotFound",
     component: NotFound,
   },
-  {
-    path: "/network-error",
-    name: "NetworkError",
-    component: NetWorkError,
-  },
+  // {
+  //   path: "/network-error",
+  //   name: "NetworkError",
+  //   component: NetWorkError,
+  // },
 ];
 
 const router = createRouter({
