@@ -57,13 +57,14 @@ export default {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #002153;
-  color: white;
+  background-color: #a3fca2;
+  color: black;
   justify-content: center;
 }
+
 .details td,
 .details th {
-  border: 1px solid #ddd;
+  border: 1px solid black;
   padding: 8px;
 }
 .details tr:nth-child(even) {
@@ -75,6 +76,6 @@ export default {
   background: black;
 }
 h2 {
-  color: black;
+  color: white;
 }
 </style>

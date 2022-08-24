@@ -1,149 +1,132 @@
 <template>
+  <h3>Doctor’s comments</h3>
   <form class="review-form" @submit.prevent="onSubmit">
-    <div class="title">
-      <h2>COMMENT</h2>
-    </div>
-    <div class="half">
-      <div class="item">
-        <label for="name">NAME</label>
-        <input id="name" v-model="name" />
-      </div>
-    </div>
-    <div class="full">
-      <label for="review">MESSAGE</label>
-      <textarea id="review" v-model="review"></textarea>
-    </div>
-    <div class="action">
-      <input type="submit" value="Submit" />
-    </div>
+    <label for="comment">Add comment</label>
+    <textarea id="comment" v-model="comment"></textarea>
+    <input class="button" type="submit" value="Submit" />
   </form>
+
+  <div class="review-container">
+    <h3>Reviews:</h3>
+    <ul>
+      <li v-for="(com, index) in comments" :key="index">
+        Comment {{ com.listNumber }}
+        <br />
+        "{{ com.comment }}"
+        <br />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import GStore from '@/store'
 export default {
-  inject: ['GStore'],
-  name: 'DoctorCommentForm',
+  props: ['id', 'event'],
+  inject: ['GStore'], //<---Inject the Global Store
   data() {
     return {
-      people_id: '',
-      name: '',
-      review: ''
+      countlist: 0,
+      comments: []
     }
   },
   methods: {
     onSubmit() {
-      if (this.name === '' || this.review === '') {
+      if (this.name === '' || this.review === '' || this.rating === null) {
         alert('Review is incomplete. Please fill out every field.')
         return
       }
-      let productReview = {
-        people_id: GStore.people.id,
-        name: this.name,
-        review: this.review
+      let doccomment = {
+        listNumber: (this.countlist += 1),
+        comment: this.comment
       }
-      this.$emit('review-submitted', productReview)
-      this.people_id = ''
-      this.name = ''
-      this.review = ''
+      this.comments.push(doccomment)
+      this.comment = ''
+      //Assuming successful API call to register them
+      //set a flash message to appear on the next page loaded which says
+      //'You are successfully registerd for' +this.event.title
+      this.GStore.flashMessage =
+        'You are successfully commented for ' + this.event.title
+      setTimeout(() => {
+        //After 3 seconds remove it
+        this.GStore.flashMessage = ''
+      }, 3000)
+      this.$router.push({
+        name: 'EventRegister',
+        params: { id: this.event.id }
+      })
     }
   }
 }
 </script>
 
 <style>
-h3 {
+.button {
+  margin: 30px;
+  background-color: #5ae866;
+  border-radius: 5px;
+  font-size: 18px;
+  width: 160px;
+  height: 60px;
   color: black;
+  padding: 20px;
+  box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
+    inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
+    inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+  text-align: center;
+  cursor: pointer;
 }
-form {
-  background: rgba(27, 31, 34, 0.8);
-  width: 640px;
-  margin: 50px auto;
-  max-width: 97%;
-  border-radius: 4px;
-  padding: 55px 30px;
-  color: white;
+.button:hover {
+  color: black;
+  margin: 30px;
+  background-color: #e85a5f;
+  color: black;
+  border-radius: 5px;
+  font-size: 18px;
+  width: 160px;
+  height: 60px;
+  padding: 20px;
+  box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
+    inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
+    inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+  text-align: center;
+  cursor: pointer;
 }
-form .title h2 {
-  letter-spacing: 6px;
-  border-bottom: 1px solid white;
-  display: inline-block;
-  padding-bottom: 8px;
-  margin-bottom: 32px;
-}
-form .half {
-  display: flex;
-  justify-content: space-between;
-}
-form .half .item {
+.review-form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 24px;
-  width: 48%;
-}
-form .half .item input {
-  border-radius: 4px;
-  border: 1px solid white;
-  outline: 0;
-  padding: 16px;
-  width: 100%;
-  height: 44px;
-  background: transparent;
-  font-size: 17px;
-}
-form .full {
-  margin-bottom: 24px;
-}
-form .full textarea {
-  background: transparent;
-  border-radius: 4px;
-  border: 1px solid white;
-  outline: 0;
-  padding: 12px 16px;
-  width: 100%;
-  height: 200px;
-  font-size: 17px;
-}
-form .action {
-  margin-bottom: 32px;
-}
-form .action input {
-  background: transparent;
-  border-radius: 4px;
-  border: 1px solid white;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  height: 44px;
-  letter-spacing: 3px;
-  outline: 0;
-  padding: 0 20px 0 22px;
-  margin-right: 10px;
-}
-form .action input[type='submit'] {
-  background: white;
+  width: 425px;
+  padding: 20px;
+  margin: 0px 0px 0px 525px;
+  border: 2px solid #0a0a0a;
+  background-color: #a3fca2;
+  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
   color: black;
 }
-form .half .item input:focus,
-form .full textarea:focus,
-form .action input[type='reset']:hover,
-form .icons a:hover {
-  background: rgba(255, 255, 255, 0.075);
+.review-container {
+  width: 425px;
+  padding: 20px;
+  background-color: #a3fca2;
+  -webkit-box-shadow: 0px 2px 20px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 20px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 20px -12px rgba(0, 0, 0, 0.57);
+  margin: 60px 0px 0px 525px;
+  border: 2px solid #0a0a0a;
+  color: black;
 }
-@media (max-width: 480px) {
-  form .half {
-    flex-direction: column;
-  }
-  form .half .item {
-    width: 100%;
-  }
-  form .action {
-    display: flex;
-    flex-direction: column;
-  }
-  form .action input {
-    margin-bottom: 10px;
-    width: 100%;
-  }
+.review-container li {
+  margin-bottom: 30px;
+}
+.review-form .button {
+  display: block;
+  margin: 30px auto;
+}
+textarea {
+  width: 95%;
+  height: 70px;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 </style>

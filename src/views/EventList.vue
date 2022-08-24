@@ -92,7 +92,7 @@ export default {
 .pagination a {
   flex: 1;
   text-decoration: none;
-  color: #2c3e50;
+  color: white;
 }
 #page-prev {
   text-align: left;

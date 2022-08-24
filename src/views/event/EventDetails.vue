@@ -39,7 +39,7 @@ export default {
 }
 #details td,
 #details th {
-  border: 1px solid #ddd;
+  border: 1px solid black;
   padding: 8px;
 }
 #details {
@@ -47,8 +47,8 @@ export default {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #002153;
-  color: white;
+  background-color: #a3fca2;
+  color: black;
 }
 #details tr:nth-child(even) {
   background-color: #ffffff;
@@ -63,6 +63,6 @@ h4 {
   color: white;
 }
 h2 {
-  color: black;
+  color: white;
 }
 </style>

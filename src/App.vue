@@ -3,13 +3,14 @@
     {{ GStore.flashMessage }}
   </div>
   <div id="nav">
-    <router-link :to="{ name: 'EventList' }">Home</router-link> |
-    <router-link :to="{ name: 'About' }">About</router-link>
+    <router-link :to="{ name: 'EventList' }">Home</router-link>&nbsp; |
+    &nbsp;<router-link :to="{ name: 'About' }">About</router-link>
   </div>
 
   <!-- new element -->
   <router-view />
 </template>
+
 <script>
 export default {
   inject: ['GStore'] // <----
@@ -30,11 +31,11 @@ export default {
   animation-duration: 3s;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #fcfcfc;
 }
 
 #nav {
@@ -42,14 +43,22 @@ export default {
 }
 
 #nav a {
+  font-size: 30px;
+  word-spacing: 30px;
   font-weight: bold;
-  color: #2c3e50;
+  color: #fcfcfc;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #a3fca2;
 }
 h4 {
   font-size: 20px;
+}
+
+body {
+  background-image: url('D:\component\SE331-2022-Project-1\src\picback2.jpg');
+  background-size: 1600px;
+  background-attachment: fixed;
 }
 </style>
