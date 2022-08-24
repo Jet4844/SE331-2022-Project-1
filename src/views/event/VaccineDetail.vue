@@ -11,6 +11,6 @@
 
 <script>
 export default {
-  props: ["people"],
-};
+  props: ['people']
+}
 </script>

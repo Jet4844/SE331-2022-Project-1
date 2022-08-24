@@ -20,17 +20,17 @@
 
 <script>
 export default {
-  props: ["people"],
-  inject: ["GStore"], // <---- Inject the Global Store
+  props: ['people'],
+  inject: ['GStore'], // <---- Inject the Global Store
   methods: {
     edit() {
       this.$router.push({
-        name: "EventDetails",
-        params: { id: this.people.id },
-      });
-    },
-  },
-};
+        name: 'EventDetails',
+        params: { id: this.people.id }
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>

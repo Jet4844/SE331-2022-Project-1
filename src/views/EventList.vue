@@ -26,58 +26,58 @@
 
 <script>
 // @ is an alias to /src
-import EventCard from "@/components/EventCard.vue";
-import EventService from "@/services/EventService.js";
+import EventCard from '@/components/EventCard.vue'
+import EventService from '@/services/EventService.js'
 // import axios from 'axios'
 export default {
-  name: "EventList",
+  name: 'EventList',
   props: {
     page: {
       type: Number,
-      required: true,
-    },
+      required: true
+    }
   },
   components: {
-    EventCard, // register it as a child component
+    EventCard // register it as a child component
   },
   data() {
     return {
       peoples: null,
-      totalPeoples: 0, // <--- Added this to store totalEvents
-    };
+      totalPeoples: 0 // <--- Added this to store totalEvents
+    }
   },
   // eslint-disable-next-line no-unused-vars
   beforeRouteEnter(routeTo, routeFrom, next) {
     EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
       .then((response) => {
         next((comp) => {
-          comp.peoples = response.data;
-          comp.totalPeoples = response.headers["x-total-count"];
-        });
+          comp.peoples = response.data
+          comp.totalPeoples = response.headers['x-total-count']
+        })
       })
       .catch(() => {
-        next({ name: "NetworkError" });
-      });
+        next({ name: 'NetworkError' })
+      })
   },
   beforeRouteUpdate(routeTo) {
     EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
       .then((response) => {
-        this.peoples = response.data; // <-----
-        this.totalPeoples = response.headers["x-total-count"]; // <-----
+        this.peoples = response.data // <-----
+        this.totalPeoples = response.headers['x-total-count'] // <-----
       })
       .catch(() => {
-        return { name: "NetworkError" };
-      });
+        return { name: 'NetworkError' }
+      })
   },
   computed: {
     hasNextPage() {
       // First, calculate total pages
-      let totalPages = Math.ceil(this.totalPeoples / 3); // 2 is events per page
+      let totalPages = Math.ceil(this.totalPeoples / 3) // 2 is events per page
       // Then check to see if the current page is less than the total pages.
-      return this.page < totalPages;
-    },
-  },
-};
+      return this.page < totalPages
+    }
+  }
+}
 </script>
 <style scoped>
 .events {

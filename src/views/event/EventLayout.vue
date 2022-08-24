@@ -1,16 +1,16 @@
 <template>
-  <div v-if="GStore.people">
+  <div v-if="GStore.event">
     <div id="nav">
       <router-link :to="{ name: 'EventDetails' }">Details</router-link>
       |
-      <router-link :to="{ name: 'VaccineDetail' }">Vaccines</router-link> |
-      <router-link :to="{ name: 'DoctorView' }">Comment</router-link>
+      <router-link :to="{ name: 'EventLayout' }">Vaccines</router-link> |
+      <router-link :to="{ name: 'EventEdit' }">Comment</router-link>
     </div>
-    <router-view :people="GStore.people" />
+    <router-view :people="GStore.event" />
   </div>
 </template>
 <script>
 export default {
-  inject: ["GStore"],
-};
+  inject: ['GStore']
+}
 </script>
