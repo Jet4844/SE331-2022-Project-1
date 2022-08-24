@@ -23,7 +23,7 @@ const routes = [
     component: About,
   },
   {
-    path: "/event/:id",
+    path: "/people/:id",
     name: "EventLayout",
     props: true,
     component: EventLayout,
