@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link :to="{ name: 'EventDetails' }">Details</router-link>
       |
-      <router-link :to="{ name: 'EventLayout' }">Vaccines</router-link> |
+      <router-link :to="{ name: 'VaccineDetail' }">Vaccines</router-link> |
       <router-link :to="{ name: 'EventEdit' }">Comment</router-link>
     </div>
     <router-view :people="GStore.event" />
