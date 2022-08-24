@@ -38,16 +38,14 @@
             "id": 3,
             "name": "Isabella",
             "surname": "Johnson",
-            "vaccine_status": 3,
+            "vaccine_status": 2,
             "vaccine_types": [
                 "Sinovac",
-                "Sinovac",
-                "AstraZeneca"
+                "Sinovac"
             ],
             "vaccine_dates": [
                 "9 December 2021",
-                "3 March 2022",
-                "11 June 2022"
+                "3 March 2022"
             ],
             "age": "21 years old",
             "hometown": "63 Grand St. Moncks Corner, SC 29461",
