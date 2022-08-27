@@ -50,14 +50,14 @@ export default {
 }
 
 #nav a.router-link-exact-active {
-  color: #a3fca2;
+  color: #e91e63;
 }
 h4 {
   font-size: 20px;
 }
 
 body {
-  background-image: url('D:\component\SE331-2022-Project-1\src\picback2.jpg');
+  background-image: url('../src/assets/picback2.jpg');
   background-size: 1600px;
   background-attachment: fixed;
 }

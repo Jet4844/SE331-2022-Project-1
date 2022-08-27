@@ -80,6 +80,9 @@ export default {
 }
 </script>
 <style scoped>
+h1 {
+  color: black;
+}
 .events {
   display: flex;
   flex-direction: column;
