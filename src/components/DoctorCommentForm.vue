@@ -129,4 +129,8 @@ textarea {
   font-size: 20px;
   margin-bottom: 20px;
 }
+
+h3 {
+  color: black;
+}
 </style>

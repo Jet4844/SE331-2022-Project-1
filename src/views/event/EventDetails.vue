@@ -63,6 +63,6 @@ h4 {
   color: white;
 }
 h2 {
-  color: white;
+  color: black;
 }
 </style>

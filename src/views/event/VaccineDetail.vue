@@ -76,6 +76,6 @@ export default {
   background: black;
 }
 h2 {
-  color: white;
+  color: black;
 }
 </style>

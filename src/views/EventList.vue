@@ -95,7 +95,7 @@ h1 {
 .pagination a {
   flex: 1;
   text-decoration: none;
-  color: white;
+  color: black;
 }
 #page-prev {
   text-align: left;

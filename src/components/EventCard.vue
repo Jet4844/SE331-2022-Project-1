@@ -7,8 +7,12 @@
     <div class="container">
       <div class="event-card">
         <div class="box">
+          <br />
+          <br />
+          <br />
           <div class="content">
-            <h4>{{ people.name }} {{ people.surname }}</h4>
+            <h4>{{ people.name }}<br />{{ people.surname }}</h4>
+
             <span>number of doses : {{ people.vaccine_status }}</span>
           </div>
         </div>
@@ -90,7 +94,7 @@ body .container .event-card .box {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: #2a2b2f;
+  background: black;
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -115,7 +119,6 @@ body .container .event-card .box:before {
 
 body .container .event-card .box .content {
   padding: 20px;
-  text-align: center;
 }
 
 body .container .event-card .box .content h4 {
@@ -124,20 +127,23 @@ body .container .event-card .box .content h4 {
   right: 30px;
   font-size: 3rem;
   color: white;
+  text-align: left;
+  text-indent: 50px;
 }
 
 body .container .event-card .box .content span {
   font-size: 1.8rem;
-  color: #2196f3;
+  color: #b3fbfc;
   z-index: 1;
   transition: 0.5s;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 body .container .event-card .box .content p {
   font-size: 1rem;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
+  color: black;
   z-index: 1;
   transition: 0.5s;
 }
@@ -151,7 +157,7 @@ body .container .event-card .box .content a {
   text-decoration: none;
   color: white;
   margin-top: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px black;
   transition: 0.5s;
 }
 body .container .event-card .box .content a:hover {

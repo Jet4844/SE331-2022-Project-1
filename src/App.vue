@@ -46,7 +46,7 @@ export default {
   font-size: 30px;
   word-spacing: 30px;
   font-weight: bold;
-  color: #fcfcfc;
+  color: black;
 }
 
 #nav a.router-link-exact-active {
