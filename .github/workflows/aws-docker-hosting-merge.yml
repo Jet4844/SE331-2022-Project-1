@@ -31,7 +31,7 @@ jobs:
         with:
           content: .
           push: true
-          tags: poomkingzaa78/project:latest
+          tags: mappy5954/project:latest
       -
         name: docker compose
         uses: alex-ac/github-action-ssh-docker-compose@master
