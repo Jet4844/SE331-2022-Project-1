@@ -32,6 +32,7 @@ const routes = [
         .then((response) => {
           // Still need to set the data here
           GStore.event = response.data // <--- Store the event
+          console.log(GStore.event)
         })
         .catch((error) => {
           if (error.response && error.response.status == 404) {
